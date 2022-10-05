@@ -1,6 +1,15 @@
 class Solution {
     public boolean isPalindrome(int x) {
-        StringBuilder sb = new StringBuilder(String.valueOf(x));
-        return String.valueOf(x).equals(new StringBuilder(String.valueOf(x)).reverse().toString());
+        if(x < 0 || (x % 10 == 0 && x != 0)) {
+            return false;
+        }
+
+        int revertedNumber = 0;
+        while(x > revertedNumber) {
+            revertedNumber = revertedNumber * 10 + x % 10;
+            x /= 10;
+        }
+
+        return x == revertedNumber || x == revertedNumber/10;
     }
 }
