@@ -5,9 +5,6 @@ class Solution {
         for(int i = 0; i < s.length(); i++){
             char sChar = s.charAt(i);
             char tChar = t.charAt(i);
-            System.out.println(sChar);
-            System.out.println(tChar);
-            
             if(sToT[sChar] == 0 && tToS[tChar] == 0){
                 sToT[sChar] = tChar;
                 tToS[tChar] = sChar;
