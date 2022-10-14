@@ -10,9 +10,6 @@ class Solution {
                 result.add(nums[i]);
             }
         }
-        for(int i:nums){
-            System.out.println(i);
-        }
         return result.size();
     }
 }
