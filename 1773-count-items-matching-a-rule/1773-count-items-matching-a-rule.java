@@ -14,8 +14,7 @@ class Solution {
                 break;
         }
         int counter = 0;
-        for(int i = 0; i < arr.size(); i++){
-            List<String> item = arr.get(i);
+        for(List<String> item : arr){
             if(item.get(rule).equals(ruleValue)) counter++;
         }
         return counter;
