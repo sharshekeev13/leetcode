@@ -1,14 +1,10 @@
 class Solution {
     
-    HashMap<String,Integer> rules = new HashMap<>();
-    
-    Solution(){
+    public int countMatches(List<List<String>> arr, String ruleKey, String ruleValue) {
+        HashMap<String,Integer> rules = new HashMap<>();
         rules.put("type",0);
         rules.put("color",1);
         rules.put("name",2);
-    }
-    
-    public int countMatches(List<List<String>> arr, String ruleKey, String ruleValue) {
         int counter = 0;
         for(int i = 0; i < arr.size(); i++){
             List<String> item = arr.get(i);
