@@ -1,2 +1,2 @@
 # leetcode
-Collection of LeetCode questions to ace the coding interview! - My LeetCode [LeetHub](https://leetcode.com/sharshekeev13/)
+Collection of LeetCode questions to ace the coding interview! - My LeetCode [LeetCode](https://leetcode.com/sharshekeev13/)
