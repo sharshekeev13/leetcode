@@ -1,35 +1,24 @@
 class Solution {
     public int countVowelSubstrings(String word) {
-        if(word.length() < 5) return 0;
-        String vowels = "aeiou";
-        int counter = 0;
-        StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < word.length()-1; i++){
-            if(vowels.indexOf(word.charAt(i)) != -1){
-                sb.append(word.charAt(i));
-                for(int j = i+1; j < word.length(); j++){
-                    if(vowels.indexOf(word.charAt(j)) != -1){
-                        sb.append(word.charAt(j));
-                        if(sb.length() >= 5 && checkString(sb.toString())) counter++;
-                    }else{
-                        sb.setLength(0);
-                        break;
-                    }
+        int vow = 0;
+        int n = word.length();
+        Set<Character> set = new HashSet<>();
+        for(int i = 0; i < n-4; i++)
+        {
+            set.clear();
+            for(int j = i; j < n; j++)
+            {
+                char ch = word.charAt(j);
+                if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+                {
+                    set.add(ch);
+                    if(set.size() == 5)
+                        vow++;
                 }
-                sb.setLength(0);
+                else
+                    break;
             }
         }
-        return counter;
-    }
-    
-    private boolean checkString(String s){
-        HashMap<Character, Integer> map = new HashMap<>();
-        String vowels = "aeiou";
-        for(char c : s.toCharArray()){
-            if(vowels.indexOf(c) != -1){
-                map.put(c,1);
-            }
-        }
-        return map.size() == 5;
+        return vow;
     }
 }
