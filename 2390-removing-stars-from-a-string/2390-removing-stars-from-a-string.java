@@ -8,7 +8,10 @@ class Solution {
                 stack.push(s.charAt(i));
             }
         }
-        String result = stack.toString().replace("[", "").replace("]","").replaceAll(",","").replaceAll(" ","");
+        StringBuilder result = new StringBuilder();
+        stack.forEach(ch -> {
+            result.append(ch);
+        });
         return result.toString();
     }
 }
