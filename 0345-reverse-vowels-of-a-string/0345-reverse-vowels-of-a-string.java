@@ -1,28 +1,25 @@
 class Solution {
     public String reverseVowels(String s) {
-         List<Character> list=Arrays.asList('a', 'e', 'i','o','u','A','E','I','O','U');
-        char[] ch=s.toCharArray();
-        int i=0;
-        int j=ch.length-1;
-
-        while(i<j){
-
-            if(list.contains(ch[i]) && list.contains(ch[j])){
-                char temp=ch[i];
-                ch[i]=ch[j];
-                ch[j]=temp;
-                i++;
-                j--;
-            }else if(list.contains(ch[i]) && !list.contains(ch[j])){
-                j--;
-            }else if(!list.contains(ch[i]) && list.contains(ch[j])){
-                i++;
-            }else if(!list.contains(ch[i]) && !list.contains(ch[j])){
-                i++;
-                j--;
+        String vowels = "aeiouAUIOE";
+        int start = 0;
+        int end = s.length() - 1;
+        char[] sChar = s.toCharArray();
+        while(start < end){
+            if(vowels.indexOf(sChar[start]) != -1 && vowels.indexOf(sChar[end]) != -1){
+                char prev = sChar[start];
+                sChar[start] = sChar[end];
+                sChar[end] = prev;
+                start++;
+                end--;
+            }else if(vowels.indexOf(sChar[start]) == -1 && vowels.indexOf(sChar[end]) != -1){
+                start++;   
+            }else if(vowels.indexOf(sChar[start]) != -1 && vowels.indexOf(sChar[end]) == -1){
+                end--;
+            }else if(vowels.indexOf(sChar[start]) == -1 && vowels.indexOf(sChar[end]) == -1){
+                start++;
+                end--;
             }
-
         }
-        return String.valueOf(ch);
+        return String.valueOf(sChar);
     }
 }
